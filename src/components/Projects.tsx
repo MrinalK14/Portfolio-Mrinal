@@ -10,7 +10,7 @@ const Projects = () => {
       description: "A modern, responsive E-commerce website for perfumes, built with React and Tailwind CSS, featuring a clean design and smooth animations.",
       image: "/WhatsApp Image 2025-05-30 at 11.04.44_bdb1fa3e.jpg",
       category: "web",
-      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Vercel"],
       github: "https://github.com/mrinalkapoor/portfolio",
       live: "https://essente.vercel.app/"
     },
@@ -19,45 +19,45 @@ const Projects = () => {
       description: "A sleek photography portfolio design with fullscreen galleries, image lightbox, and smooth transitions.",
       image: "/WhatsApp Image 2025-05-30 at 11.04.45_3b92c56c.jpg",
       category: "web",
-      technologies: ["React", "Typescript", "Tailwind CSS"],
+      technologies: ["React", "Typescript", "Tailwind CSS", "Vercel"],
       github: "",
       live: "https://photography-portfolio-umber-phi.vercel.app/"
+    },
+    {
+      title: "HRMS CRM",
+      description: "A productivity application for managing employees, tasks and streamline the recruitment process.",
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "web",
+      technologies: ["React", "Node.js", "MagicUI", "Shadcn", "Azure"],
+      github: "https://github.com/mrinalkapoor/task-manager",
+      live: "https://task-manager-demo.netlify.app"
     },
     {
       title: "Portfolio OS",
       description: "Interactive portfolio designed and developed like an operating system with window terminals showcasing different sections.",
       image: "/WhatsApp Image 2025-05-30 at 11.52.49_8d657720.jpg",
       category: "web",
-      technologies: ["Next.js", "Typescript", "Tailwind CSS"],
+      technologies: ["Next.js", "Typescript", "Tailwind CSS", "Vercel"],
       github: "https://github.com/mrinalkapoor/ecommerce-dashboard",
       live: "https://portfolio2-0-ten-peach.vercel.app/"
+    },
+    {
+      title: "Converge",
+      description: "All in platform for creating, colaborating and managing events around the globe.",
+      image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      category: "web",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "DotNet", "Azure"],
+      github: "https://github.com/mrinalkapoor/fitness-tracker",
+      live: ""
     },
     {
       title: "Portfolio V1",
       description: "My first portfolio website built with react, typesript and tailwind css.",
       image: "/WhatsApp Image 2025-05-30 at 11.41.13_5b0cffe1.jpg",
-      category: "mobile",
-      technologies: ["React", "Typescript", "Tailwind CSS"],
+      category: "web",
+      technologies: ["React", "Typescript", "Tailwind CSS", "Vercel"],
       github: "https://github.com/mrinalkapoor/weather-app",
       live: "https://mrinal-portfolio1.vercel.app/"
-    },
-    {
-      title: "Task Manager",
-      description: "A productivity app for managing tasks and projects with features like drag-and-drop organization and time tracking.",
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "web",
-      technologies: ["Vue.js", "Firebase", "Vuetify"],
-      github: "https://github.com/mrinalkapoor/task-manager",
-      live: "https://task-manager-demo.netlify.app"
-    },
-    {
-      title: "Fitness Tracker",
-      description: "A mobile application for tracking workouts, nutrition, and fitness goals with progress visualization.",
-      image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "mobile",
-      technologies: ["Flutter", "Firebase", "Google Fit API"],
-      github: "https://github.com/mrinalkapoor/fitness-tracker",
-      live: ""
     }
   ];
 

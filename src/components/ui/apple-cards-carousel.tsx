@@ -61,14 +61,6 @@ export const Card = ({ card, index, layout = false }: CardProps) => {
             opacity: isOpen ? 0 : 1,
           }}
         />
-        <motion.div
-          className="absolute inset-0 w-full h-full"
-          layout={layout}
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.3)",
-            opacity: isOpen ? 0 : 1,
-          }}
-        />
 
         <motion.img
           src={card.src}
@@ -297,7 +289,7 @@ export const Carousel = ({ items }: { items: React.ReactNode[] }) => {
       {/* Carousel */}
       <div 
         ref={scrollContainerRef}
-        className="flex overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar scroll-smooth gap-6"
+        className="flex overflow-x-auto overflow-y-hidden pb-8 snap-x snap-mandatory no-scrollbar scroll-smooth gap-6"
       >
         {items.map((item, index) => (
           <div 
@@ -309,21 +301,34 @@ export const Carousel = ({ items }: { items: React.ReactNode[] }) => {
         ))}
       </div>
       
-      {/* Scroll indicators */}
-      <div className="flex justify-center mt-4 gap-2">
+      {/* Scroll indicators - Mobile only */}
+      <div className="flex justify-center mt-4 gap-2 md:hidden">
         {items.length > 0 && (
           <div className="flex gap-1.5">
-            {Array.from({ length: Math.min(items.length, 5) }).map((_, i) => {
+            {Array.from({ length: items.length }).map((_, i) => {
               // Calculate which dot should be active based on scroll position
-              const itemWidth = scrollContainerRef.current ? 
-                scrollContainerRef.current.scrollWidth / items.length : 0;
-              const activeIndex = Math.round(scrollPosition / itemWidth);
+              const container = scrollContainerRef.current;
+              let activeIndex = 0;
+              
+              if (container) {
+                // Get the width of a single card including gap
+                const cardElements = container.children;
+                if (cardElements.length > 0) {
+                  const cardWidth = cardElements[0].getBoundingClientRect().width;
+                  const gap = 24; // 6 * 4px (gap-6 = 1.5rem = 24px)
+                  const itemWidthWithGap = cardWidth + gap;
+                  activeIndex = Math.round(scrollPosition / itemWidthWithGap);
+                }
+              }
+              
+              // Clamp the active index to valid range
+              activeIndex = Math.max(0, Math.min(activeIndex, items.length - 1));
               
               return (
                 <div 
                   key={i} 
                   className={`h-1.5 rounded-full transition-all duration-300 ${
-                    i === Math.min(activeIndex, 4) 
+                    i === activeIndex 
                       ? 'w-6 bg-gray-800 dark:bg-white' 
                       : 'w-1.5 bg-gray-300 dark:bg-gray-700'
                   }`}

@@ -35,7 +35,7 @@ const Hero = () => {
           opacity: 1 - scrollPosition * 0.002
         }}
       >
-        <h1 className="hero-headline custom-font animate-reveal-up">
+        <h1 className="hero-headline animate-reveal-up">
           Developer.<br />
           Designer.<br />
           Creator.
@@ -82,7 +82,7 @@ const Hero = () => {
       
       {/* Hero image */}
       <div 
-        className="absolute bottom-0 left-0 right-0 h-[40vh] z-0 overflow-hidden"
+        className="absolute bottom-0 left-0 right-0 h-[44.5vh] z-0 overflow-hidden"
         style={{ 
           transform: `translateY(${scrollPosition * 0.1}px)`,
         }}

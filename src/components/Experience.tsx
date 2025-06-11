@@ -6,6 +6,19 @@ import { MagicCard } from '@/components/ui/magic-card';
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState('work');
+  const [expandedCards, setExpandedCards] = useState<Set<string>>(new Set());
+
+  const toggleCard = (cardId: string) => {
+    setExpandedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(cardId)) {
+        newSet.delete(cardId);
+      } else {
+        newSet.add(cardId);
+      }
+      return newSet;
+    });
+  };
   
   const workExperience = [
     {
@@ -136,7 +149,8 @@ const Experience = () => {
                       <h3 className="text-xl font-semibold mb-1">{job.title}</h3>
                       <p className="text-muted-foreground mb-6">{job.company}</p>
                       
-                      <ul className="space-y-3">
+                      {/* Desktop view - show all points */}
+                      <ul className="space-y-3 hidden md:block">
                         {job.description.map((item, i) => (
                           <li key={i} className="flex items-start">
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
@@ -144,6 +158,35 @@ const Experience = () => {
                           </li>
                         ))}
                       </ul>
+
+                      {/* Mobile view - expandable */}
+                      <div className="block md:hidden">
+                        <ul className="space-y-3">
+                          {/* Always show first point */}
+                          <li className="flex items-start">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
+                            <span>{job.description[0]}</span>
+                          </li>
+                          
+                          {/* Show remaining points if expanded */}
+                          {expandedCards.has(`work-${index}`) && job.description.slice(1).map((item, i) => (
+                            <li key={i + 1} className="flex items-start animate-fade-in">
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        {/* View more/less button */}
+                        {job.description.length > 1 && (
+                          <button
+                            onClick={() => toggleCard(`work-${index}`)}
+                            className="mt-4 text-blue-500 text-sm font-medium hover:text-blue-600 transition-colors"
+                          >
+                            {expandedCards.has(`work-${index}`) ? 'View less' : `View more (${job.description.length - 1} more)`}
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </MagicCard>
                 </div>
@@ -187,7 +230,8 @@ const Experience = () => {
                       <h3 className="text-xl font-semibold mb-1">{edu.degree}</h3>
                       <p className="text-muted-foreground mb-6">{edu.institution}</p>
                       
-                      <ul className="space-y-3">
+                      {/* Desktop view - show all points */}
+                      <ul className="space-y-3 hidden md:block">
                         {edu.achievements.map((item, i) => (
                           <li key={i} className="flex items-start">
                             <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
@@ -195,6 +239,35 @@ const Experience = () => {
                           </li>
                         ))}
                       </ul>
+
+                      {/* Mobile view - expandable */}
+                      <div className="block md:hidden">
+                        <ul className="space-y-3">
+                          {/* Always show first point */}
+                          <li className="flex items-start">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
+                            <span>{edu.achievements[0]}</span>
+                          </li>
+                          
+                          {/* Show remaining points if expanded */}
+                          {expandedCards.has(`edu-${index}`) && edu.achievements.slice(1).map((item, i) => (
+                            <li key={i + 1} className="flex items-start animate-fade-in">
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 mr-3 flex-shrink-0"></span>
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        
+                        {/* View more/less button */}
+                        {edu.achievements.length > 1 && (
+                          <button
+                            onClick={() => toggleCard(`edu-${index}`)}
+                            className="mt-4 text-blue-500 text-sm font-medium hover:text-blue-600 transition-colors"
+                          >
+                            {expandedCards.has(`edu-${index}`) ? 'View less' : `View more (${edu.achievements.length - 1} more)`}
+                          </button>
+                        )}
+                      </div>
                     </div>
                   </MagicCard>
                 </div>

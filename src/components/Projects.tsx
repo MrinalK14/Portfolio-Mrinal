@@ -24,6 +24,15 @@ const Projects = () => {
       live: "https://photography-portfolio-umber-phi.vercel.app/"
     },
     {
+      title: "Converge",
+      description: "All in platform for creating, colaborating and managing events around the globe.",
+      image: "/WhatsApp Image 2025-06-12 at 12.49.00 AM.jpeg",
+      category: "web",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "DotNet", "Azure"],
+      github: "https://github.com/mrinalkapoor/fitness-tracker",
+      live: ""
+    },
+    {
       title: "HRMS CRM",
       description: "A productivity application for managing employees, tasks and streamline the recruitment process.",
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -40,15 +49,6 @@ const Projects = () => {
       technologies: ["Next.js", "Typescript", "Tailwind CSS", "Vercel"],
       github: "https://github.com/mrinalkapoor/ecommerce-dashboard",
       live: "https://portfolio2-0-ten-peach.vercel.app/"
-    },
-    {
-      title: "Converge",
-      description: "All in platform for creating, colaborating and managing events around the globe.",
-      image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      category: "web",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "DotNet", "Azure"],
-      github: "https://github.com/mrinalkapoor/fitness-tracker",
-      live: ""
     },
     {
       title: "Portfolio V1",
